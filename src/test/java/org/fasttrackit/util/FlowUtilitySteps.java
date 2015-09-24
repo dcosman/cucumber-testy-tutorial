@@ -1,7 +1,9 @@
 package org.fasttrackit.util;
 
 import com.sdl.selenium.utils.config.WebDriverConfig;
+import com.sdl.selenium.web.form.ComboBox;
 import com.sdl.selenium.web.utils.Utils;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -40,5 +42,12 @@ public class FlowUtilitySteps extends TestBase {
     @Then("^I should be on url \"([^\"]*)\"$")
     public void I_should_be_on_url(String url) {
         assertThat(WebDriverConfig.getDriver().getCurrentUrl(), is(url));
+    }
+
+    @And("^I select \"([^\"]*)\" in the drop-down list named \"([^\"]*)\"$")
+    public void selectValueInDropdown(String value, String label) {
+        ComboBox comboBox = new ComboBox();
+        comboBox.setLabel(label);
+        assertThat("Failed to select " + value, comboBox.select(value));
     }
 }
