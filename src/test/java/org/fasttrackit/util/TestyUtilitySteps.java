@@ -1,5 +1,6 @@
 package org.fasttrackit.util;
 
+import com.sdl.selenium.bootstrap.form.Form;
 import com.sdl.selenium.web.SearchType;
 import com.sdl.selenium.web.WebLocator;
 import com.sdl.selenium.web.button.InputButton;
@@ -25,9 +26,16 @@ public class TestyUtilitySteps extends TestBase {
     }
 
     @When("^I click on element with text \"([^\"]*)\"$")
-    public void I_click_on_element_with_text(String text) throws Throwable {
+         public void I_click_on_element_with_text(String text) throws Throwable {
         WebLocator element = new WebLocator().setText(text);
         element.assertClick();
+    }
+
+    @When("^I click on element from container with text \"([^\"]*)\"$")
+    public void I_click_on_element_from_container_with_text(String text) throws Throwable {
+        Form form = new Form().setTitle("Your Vehicles");
+        WebLink link = new WebLink(form, "Continue");
+        link.assertClick();
     }
     
     @When("^I click on input button with text \"([^\"]*)\"$")
