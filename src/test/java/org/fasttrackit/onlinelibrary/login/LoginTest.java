@@ -8,10 +8,10 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/cucumber","json:target/jsonReports/LoginTest.json"},
         glue = {
                 "org.fasttrackit.util",
-                "org.fasttrackit.onlinelibrary.login"
+                "org.fasttrackit.onlinelibrary.savvy"
         },
         features = {
-                "src/test/resources/feature/login/login.feature"
+                "src/test/resources/feature/savvy/savvy.feature"
         }
 )
 @RunWith(Cucumber.class)

@@ -46,8 +46,7 @@ public class FlowUtilitySteps extends TestBase {
 
     @And("^I select \"([^\"]*)\" in the drop-down list named \"([^\"]*)\"$")
     public void selectValueInDropdown(String value, String label) {
-        ComboBox comboBox = new ComboBox();
-        comboBox.setLabel(label);
+        ComboBox comboBox = new ComboBox().setLabel(label);
         assertThat("Failed to select " + value, comboBox.select(value));
     }
 }
