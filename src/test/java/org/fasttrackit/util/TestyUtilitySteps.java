@@ -31,10 +31,10 @@ public class TestyUtilitySteps extends TestBase {
         element.assertClick();
     }
 
-    @When("^I click on element from container with text \"([^\"]*)\"$")
-    public void I_click_on_element_from_container_with_text(String text) throws Throwable {
-        Form form = new Form().setTitle("Your Vehicles");
-        WebLink link = new WebLink(form, "Continue");
+    @When("^I click on \"([^\"]*)\" button from the section \"([^\"]*)\"$")
+    public void I_click_on_element_from_container_with_text(String button, String section) {
+        Form form = new Form().setTitle(section);
+        WebLink link = new WebLink(form, button);
         link.assertClick();
     }
     
